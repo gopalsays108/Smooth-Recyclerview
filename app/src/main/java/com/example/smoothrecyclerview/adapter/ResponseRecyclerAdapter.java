@@ -16,12 +16,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.smoothrecyclerview.R;
 import com.example.smoothrecyclerview.modal.ResponseModal;
+import com.example.smoothrecyclerview.viewmodal.ResponseViewModal;
 
 import java.util.List;
 
 public class ResponseRecyclerAdapter extends RecyclerView.Adapter<ResponseRecyclerAdapter.ViewHolder> {
     private final Context context;
-    private final List<ResponseModal> responseModalList;
+    private List<ResponseModal> responseModalList;
 
     public ResponseRecyclerAdapter(Context context, List<ResponseModal> responseModalList) {
         this.context = context;
@@ -53,6 +54,11 @@ public class ResponseRecyclerAdapter extends RecyclerView.Adapter<ResponseRecycl
     private void setUserImage(String url, ViewHolder holder) {
         Glide.with(context).load(url)
                 .into(holder.getImage());
+    }
+
+
+    public void getAllResponse(List<ResponseModal> modal) {
+        this.responseModalList = modal;
     }
 
     @Override

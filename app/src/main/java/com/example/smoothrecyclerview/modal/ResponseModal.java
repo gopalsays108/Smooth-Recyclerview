@@ -1,19 +1,30 @@
 package com.example.smoothrecyclerview.modal;
 
 import androidx.annotation.NonNull;
+import androidx.room.Database;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+import androidx.room.TypeConverters;
+
+import com.example.smoothrecyclerview.utils.Converter;
 
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.List;
 
+@Entity(tableName = "response_list")
+//@Database(version = 1, entities = {Entity.class})
+@TypeConverters(Converter.class)
 public class ResponseModal implements Serializable {
+
+    @PrimaryKey
     private int id;
+
     private String name;
     private List<String> subjects;
     private List<String> qualification;
     private String profileImage;
     private static final long serialVersionUID = 1L;
-
 
     public ResponseModal() {
     }
